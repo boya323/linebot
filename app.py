@@ -50,8 +50,6 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, [message , message2])
 import os
 
-#PUSH 文字
-line_bot_api.push_message(to,TextSendMessage(text=':):):)'))
 
 
 
