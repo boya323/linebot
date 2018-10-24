@@ -62,7 +62,7 @@ img_message = ImageSendMessage(
 line_bot_api.push_message(to,img_message)
 
 #PUSH 貼圖
-line_bot_api.push_message(to,StickerSendMessage(package_id='180' ,sticker_id='3'))
+line_bot_api.push_message(to,StickerSendMessage(package_id='3' ,sticker_id='180'))
 
 #PUSH 按鈕
 confirm_temp_message = TemplateSendMessage(
