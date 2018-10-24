@@ -68,7 +68,7 @@ line_bot_api.push_message(to,StickerSendMessage(package_id='180' ,sticker_id='3'
 confirm_temp_message = TemplateSendMessage(
  alt_text='小熊軟糖好吃',
  template=ConfirmTemplate(
-  text=':)))',
+  text='小熊軟糖好吃',
   actions=[
    PostbackTemplateAction(
     label='是',
