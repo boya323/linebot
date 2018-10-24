@@ -43,10 +43,45 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TextSendMessage(text='Nice to meet you!')
-    line_bot_api.reply_message(event.reply_token, message)
-
+    message = TextSendMessage(text='哈囉！你好！')
+    message2 = TextSendMessage(event.source.user_id)
+    line_bot_api.reply_message(event.reply_token, [message , mesage2])
 import os
+
+#PUSH 文字
+line_bot_api.push_message(to,TextSendMessage(text=':):):)'))
+
+
+#PUSH 圖片
+img_message = ImageSendMessage(
+ original_content_url='https://vignette.wikia.nocookie.net/kpop/images/3/3d/DAY6_Shoot_Me_Youth_Part_1_group_logo.png/revision/latest/scale-to-width-down/150?cb=20180626185328
+',
+ preview_image_url ='https://vignette.wikia.nocookie.net/kpop/images/3/3d/DAY6_Shoot_Me_Youth_Part_1_group_logo.png/revision/latest/scale-to-width-down/150?cb=20180626185328
+'
+)
+line_bot_api.push_message(to,img_message)
+
+#PUSH 貼圖
+line_bot_api.push_message(to,StickerSendMessage(package_id='180' ,sticker_id='3'))
+
+#PUSH 按鈕
+confirm_temp_message = TemplateSendMessage(
+ alt_text='小熊軟糖好吃',
+ template=ConfirmTemplate(
+  text=':)))',
+  actions=[
+   PostbackTemplateAction(
+    label='是',
+    text='是',
+    data='yes'),
+   MessageTemplateAction(
+    label='否',
+    text='否')
+   ]
+  )
+ )
+
+line_bot_api.push_message(to,confirm_temp_message)
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
