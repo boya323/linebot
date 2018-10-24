@@ -19,7 +19,7 @@ line_bot_api = LineBotApi(ACCESS_TOKEN)
 # Channel Secret
 handler = WebhookHandler(SECRET)
 
-to=U484944ffc0e2f541b7e21ca8fb3a00d7
+to='U484944ffc0e2f541b7e21ca8fb3a00d7'
 
 
 @app.route("/")
@@ -51,6 +51,37 @@ def handle_message(event):
 import os
 
 
+#PUSH 文字
+line_bot_api.push_message(to,TextSendMessage(text=':):):)'))
+
+#PUSH 圖片
+img_message = ImageSendMessage(
+ original_content_url='https://i.imgur.com/NzVD7st.png',
+ preview_image_url ='https://i.imgur.com/NzVD7st.png'
+)
+line_bot_api.push_message(to,img_message)
+
+#PUSH 貼圖
+line_bot_api.push_message(to,StickerSendMessage(package_id='180' ,sticker_id='3'))
+
+#PUSH 按鈕
+confirm_temp_message = TemplateSendMessage(
+ alt_text='小熊軟糖好吃',
+ template=ConfirmTemplate(
+  text='小熊軟糖好吃',
+  actions=[
+   PostbackTemplateAction(
+    label='是',
+    text='是',
+    data='yes'),
+   MessageTemplateAction(
+    label='否',
+    text='否')
+   ]
+  )
+ )
+
+line_bot_api.push_message(to,confirm_temp_message)
 
 
 if __name__ == "__main__":
