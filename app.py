@@ -54,10 +54,8 @@ line_bot_api.push_message(to,TextSendMessage(text=':):):)'))
 
 #PUSH 圖片
 img_message = ImageSendMessage(
- original_content_url='https://vignette.wikia.nocookie.net/kpop/images/3/3d/DAY6_Shoot_Me_Youth_Part_1_group_logo.png/revision/latest/scale-to-width-down/150?cb=20180626185328
-',
- preview_image_url ='https://vignette.wikia.nocookie.net/kpop/images/3/3d/DAY6_Shoot_Me_Youth_Part_1_group_logo.png/revision/latest/scale-to-width-down/150?cb=20180626185328
-'
+ original_content_url='https://i.imgur.com/NzVD7st.png',
+ preview_image_url ='https://i.imgur.com/NzVD7st.png'
 )
 line_bot_api.push_message(to,img_message)
 
