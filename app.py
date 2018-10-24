@@ -19,6 +19,8 @@ line_bot_api = LineBotApi(ACCESS_TOKEN)
 # Channel Secret
 handler = WebhookHandler(SECRET)
 
+to=U484944ffc0e2f541b7e21ca8fb3a00d7
+
 
 @app.route("/")
 def hello_world():
